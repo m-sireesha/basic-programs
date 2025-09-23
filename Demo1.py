@@ -10,6 +10,6 @@ print(" python")
 
 name="sireesha"
 salary=6000
-gf="funny"
+gf="sunny"
 print("hello {0} your salary is {1} and yout friend {2} is waiting for you ".format(name,salary,gf))
 print("hello {x} your salary is {y} and yout friend {z} is waiting for you ".format(x=name,y=salary,z=gf))
