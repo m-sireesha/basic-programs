@@ -1,6 +1,6 @@
 
 def word_frequency(paragraph):
-    words = paragraph.replace(".", "").split()  # remove '.' and split
+    words = paragraph.replace(".", " ").split()  # remove '.' and split
     freq = {}
     for w in words:
         if w in freq:
