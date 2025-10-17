@@ -1,25 +1,18 @@
 
+
 def is_armstrong(num):
-    n = num
-    digits = 0
-    temp = n
+    # Convert to string to count digits easily
+    s = str(num)
+    n = len(s)
     
-    # Count digits
-    while temp > 0:
-        digits += 1
-        temp //= 10
-    
-    # Calculate sum of powers
-    temp = n
     total = 0
-    while temp > 0:
-        digit = temp % 10
-        total += digit ** digits
-        temp //= 10
+    for ch in s:
+        digit = int(ch)
+        total += digit ** n
     
     return total == num
 
-# Example
-print(is_armstrong(153))  # True
+# Example usage:
+print(is_armstrong(153))  # True, because 1^3 + 5^3 + 3^3 = 153
 print(is_armstrong(123))  # False
 

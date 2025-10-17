@@ -1,9 +1,12 @@
 
-def diamond(n):
-    for i in range(1, n+1):
-        print(" "*(n-i) + "*"*(2*i-1))
-    for i in range(n-1, 0, -1):
-        print(" "*(n-i) + "*"*(2*i-1))
+def print_diamond(rows):
+    # Top half (including middle)
+    for i in range(rows):
+        print(" " * (rows - i - 1) + "*" * (2 * i + 1))
+        
+    # Bottom half (excluding middle)
+    for i in range(rows - 2, -1, -1):
+        print(" " * (rows - i - 1) + "*" * (2 * i + 1))
 
-# Example
-diamond(4)
+print_diamond(4)
+
