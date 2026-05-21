@@ -9,7 +9,7 @@ pipeline {
 
         stage('Git Checkout') {
             steps {
-                git 'https://github.com/your-repo/demo.git'
+                git 'https://github.com/m-sireesha/basic-programs.git'
             }
         }
 
