@@ -7,39 +7,30 @@ pipeline {
 
     stages {
 
-        stage('Git Checkout') {
+        stage('Build') {
             steps {
-                git 'https://github.com/m-sireesha/basic-programs.git'
+                sh 'mvn clean compile'
             }
         }
 
-        stage('Build') {
+        stage('Test') {
             steps {
-                sh 'mvn clean package'
+                sh 'mvn test'
             }
         }
 
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    sh 'mvn sonar:sonar'
+                    sh 'mvn sonar:sonar -Dsonar.projectKey=spring-demo'
                 }
             }
         }
 
         stage('Docker Build') {
             steps {
-                sh 'docker build -t demo-app .'
-            }
-        }
-
-        stage('Docker Run') {
-            steps {
-                sh 'docker run -d -p 8081:8080 demo-app'
+                sh 'docker build -t spring-demo .'
             }
         }
     }
 }
-
-
-
